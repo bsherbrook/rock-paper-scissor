@@ -1,0 +1,1 @@
+This is my third major assignemnt as part of the Odin Project coding curriculum. Using basic Javascript I will attempt to make my first random number game based around the classic Rock Paper Scissors!

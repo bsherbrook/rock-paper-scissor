@@ -1,0 +1,78 @@
+html{
+    background: url('./img/bg2.jpg');
+    background-size:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#playByPlay{
+    color: white;
+    font-size: 20px;
+
+}
+#buttbox{
+    display: flex;
+    justify-content: center;
+    background: url('./img/bg1.jpg');
+    background-size:1200px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 1200px;
+    
+}
+
+.header{
+    color: white;
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+#scoreboard{
+    color: white;
+    margin-top: 55px;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.butt{
+    width: 300px;
+    height:300px;
+    margin: 200px 140px;
+    border-radius: 10px;
+    font-size: 25px;
+    background-color:transparent;
+    color:blue ;
+}
+
+#scissors{
+    margin-right: 120px;
+}
+
+.butt:hover{
+    border-color:aliceblue;  
+    cursor:pointer;
+}
+
+#rock:hover{
+    background-image: url('./img/hand-rock.jpg');
+    background-size:cover;
+    background-position: center;
+}
+
+#scissors:hover{
+    background-image: url('./img/hand-sci.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+#paper:hover{
+    background-image: url('./img/hand-paper.jpg');
+    background-position: center;
+    background-size: cover;
+}
