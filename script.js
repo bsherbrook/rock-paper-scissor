@@ -1,29 +1,30 @@
 let computerSelection=''
 let rando;
-let playBy= document.getElementById('playByPlay').innerHTML;
-
-
+let playBy= document.getElementById('playByPlay');
 let butts = document.querySelectorAll('.butt');
+let pScorecard= document.getElementById('pScore');
+let cScorecard= document.getElementById('cScore');
+let playerScore=0;
+let compScore=0;
 butts.forEach(butt => butt.addEventListener('click', playGame));
+
 function playGame(butt){ 
     let playerSelection= butt.target.id;
-    console.log(playerSelection);
     let computerSelection = compChoice();
-    console.log(computerSelection);
     if (playerSelection==='rock' && computerSelection==='scissors' ||
         playerSelection==='paper' && computerSelection==='rock' ||
         playerSelection==='scissors' && computerSelection=== 'paper'){
-            playerScore += 1
-            console.log(`YOU WIN!!! ${playerSelection} beats ${computerSelection}!`);
+            playerScore += 1;
+            pScorecard.innerHTML= `Player Score: ${playerScore}`
+            playBy.innerHTML = `YOU WIN!!! ${playerSelection} beats ${computerSelection}!`;
 }   else if (playerSelection === computerSelection){
-        console.log(`Call it a draw! Everbody throws ${playerSelection}!`);
+        playBy.innerHTML = `Call it a draw! Everbody throws ${playerSelection}!`;
 }   else {
         compScore += 1;
-        console.log(`YOU LOSE!!! ${computerSelection} beats ${playerSelection}!`);
-}       console.log(`Player Score:${playerScore}`);
-        console.log(`Computer Score:${compScore}`);
+        cScorecard.innerHTML= `Computer Score: ${compScore}`
+        playBy.innerHTML= `YOU LOSE!!! ${computerSelection} beats ${playerSelection}!`;
 }
-    //change innerhtml to say you threw rock. cue picture.
+}
 
 function compChoice(){
     let rando = Math.floor(Math.random()*3 +1);
@@ -31,10 +32,6 @@ function compChoice(){
     if (rando === 2) {return 'paper'};
     if (rando === 3) {return 'scissors'};
 }
-
-
-let playerScore=0;
-let compScore=0;
 
 function game(){
     for (let i=0; i < 5; i++){
