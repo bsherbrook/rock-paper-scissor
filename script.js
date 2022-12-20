@@ -1,5 +1,6 @@
 let computerSelection=''
 let rando;
+let buttBox= document.getElementById('buttbox')
 let playBy= document.getElementById('playByPlay');
 let butts = document.querySelectorAll('.butt');
 let pScorecard= document.getElementById('pScore');
@@ -16,13 +17,22 @@ function playGame(butt){
         playerSelection==='scissors' && computerSelection=== 'paper'){
             playerScore += 1;
             pScorecard.innerHTML= `Player Score: ${playerScore}`
-            playBy.innerHTML = `YOU WIN!!! ${playerSelection} beats ${computerSelection}!`;
+            if (playerScore === 5){
+                playBy.innerHTML= `Sweet Victory`;
+                butts.forEach(butt=>butt.disabled=true);
+            }
+            else {playBy.innerHTML = `YOU WIN!!! ${playerSelection} beats ${computerSelection}!`;}
 }   else if (playerSelection === computerSelection){
         playBy.innerHTML = `Call it a draw! Everbody throws ${playerSelection}!`;
 }   else {
         compScore += 1;
         cScorecard.innerHTML= `Computer Score: ${compScore}`
-        playBy.innerHTML= `YOU LOSE!!! ${computerSelection} beats ${playerSelection}!`;
+        if (compScore=== 5){
+            playBy.innerHTML= `Crushing Defeat`;
+            butts.forEach(butt=>butt.disabled=true);
+        }
+        else{ 
+        playBy.innerHTML= `YOU LOSE!!! ${computerSelection} beats ${playerSelection}!`;}
 }
 }
 
@@ -31,17 +41,4 @@ function compChoice(){
     if (rando === 1) {return 'rock'}; 
     if (rando === 2) {return 'paper'};
     if (rando === 3) {return 'scissors'};
-}
-
-function game(){
-    for (let i=0; i < 5; i++){
-        playerSelection= prompt('Rock Paper Scissors!')
-        playRound(playerSelection)}
-            if (playerScore>compScore){
-                console.log('PLAYER BEATS COMPUTER!!!');
-}           else if (playerScore<compScore){
-                console.log('COMPUTER DOMINATES!!!');
-}           else if (playerScore===compScore){ 
-                console.log('What is this? A TIE?!?!?!');
-}   
 }
